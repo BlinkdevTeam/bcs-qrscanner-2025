@@ -84,16 +84,16 @@ export default function Scanner() {
           user.success === false ? ( 
             <View style={styles.resultContainer}>
               <Text style={styles.dataText}>{user.message}⚠️</Text>
-              <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => setUser(null)}>
                 <Image
                   source={require('../assets/scannerIcon.png')}
                   style={styles.scannerIcon}
                   resizeMode="contain"
                 />
-                <TouchableOpacity style={styles.button} onPress={() => setUser(null)}>
+                <View style={styles.button}>
                   <Text style={styles.buttonText}>Scan Again</Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
               <Image
                 source={require('../assets/qrbg.png')}
                 style={styles.qrbg}
@@ -104,16 +104,16 @@ export default function Scanner() {
             <View style={styles.resultContainer}>
               <Text style={styles.resultText}>Scanned Value:</Text>
               <Text style={styles.dataText}>🎉{user.data.firstName + " " + user.data.lastName}🎉</Text>
-              <View style={styles.buttonContainer}>
+              <TouchableOpacity  style={styles.buttonContainer} onPress={() => setUser(null)}>
                 <Image
                   source={require('../assets/scannerIcon.png')}
                   style={styles.scannerIcon}
                   resizeMode="contain"
                 />
-                <TouchableOpacity style={styles.button} onPress={() => setUser(null)}>
+                <View style={styles.button}>
                   <Text style={styles.buttonText}>Scan Again</Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
               <Image
                 source={require('../assets/qrbg.png')}
                 style={styles.qrbg}
@@ -140,10 +140,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#A30A24',
+    backgroundColor: '#007F8B',
   },
   resultText: { 
     fontSize: 20, 
+    marginTop: '-80',
     marginBottom: 10, 
     color: "#ffffff",
     position: 'relative', 
@@ -166,17 +167,19 @@ const styles = StyleSheet.create({
       flexDirection: 'row',      // icon + button side by side
       alignItems: 'center',      // vertically center
       justifyContent: 'center',  // horizontally center
-      backgroundColor: '#B10B27',
+      backgroundColor: '#F58A1F',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 8,
       alignSelf: 'center', 
       position: 'relative', 
-    zIndex: 9       // only take space it needs
+      width: 300,
+      height: 70,
+      zIndex: 9       // only take space it needs
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   scannerIcon: {
